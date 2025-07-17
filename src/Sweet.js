@@ -1,5 +1,6 @@
 class Sweet {
-    constructor(name, category, pricePerUnit, quantityInStock) {
+    constructor(id,name, category, pricePerUnit, quantityInStock) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.pricePerUnit = pricePerUnit;
