@@ -66,4 +66,11 @@ describe('SweetShopManagementSystem Tests', () => {
         const sweet = new Sweet(8, "Gulab Jamun", "Milk Sweet", -25, 100);
         expect(() => shop.addSweet(sweet)).toThrow("Sweet price must be a positive number!");
     });
+
+    //Test to check if Quantity is Invalid
+    test('addSweetWithInvalidQuantityTest', () => {
+        const sweet = new Sweet(9, "Gulab Jamun", "Milk Sweet", 25, -100);
+        expect(() => shop.addSweet(sweet)).toThrow("Sweet quantity must be a positive number!");
+    });
+
 });

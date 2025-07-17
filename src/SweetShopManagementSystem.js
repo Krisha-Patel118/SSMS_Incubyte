@@ -18,7 +18,8 @@ class SweetShopManagementSystem {
         this.#checkSweetName(sweet.name);
         this.#checkSweetCategory(sweet.category);
         this.#checkSweetPrice(sweet.pricePerUnit);
-    
+        this.#checkSweetQuantity(sweet.quantityInStock);
+
         this.#availableSweets.push(sweet);
         console.log(`Sweet "${sweet.name}" added successfully!`);
     }
@@ -53,6 +54,12 @@ class SweetShopManagementSystem {
     // Check if the price is a positive number
     #checkSweetPrice(price) {
         if (typeof price !== "number" || price <= 0) throw new Error("Sweet price must be a positive number!");
+        return true;
+    }
+
+    // Check if the quantity is a positive number
+    #checkSweetQuantity(quantity) {
+        if (typeof quantity !== "number" || quantity <= 0) throw new Error("Sweet quantity must be a positive number!");
         return true;
     }
 
