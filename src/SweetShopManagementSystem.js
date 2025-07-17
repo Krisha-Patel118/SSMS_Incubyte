@@ -14,9 +14,21 @@ class SweetShopManagementSystem {
     }
       // Add a sweet to the shop
     addSweet(sweet) {
-        this.#availableSweets.push(sweet);
-        console.log(`Sweet "${sweet.name}" added successfully!`);
+        this.#checkSweetName(sweet.name);
+    this.#availableSweets.push(sweet);
+    console.log(`Sweet "${sweet.name}" added successfully!`);
+
     }
+
+    #checkSweetName(name) {
+    if (name === null) {
+            throw new Error("Sweet name cannot be null!");
+        } else if (name.trim() === "") {
+            throw new Error("Sweet name cannot be empty");
+        }
+        return true;
+}
+
 }
 
 module.exports = SweetShopManagementSystem;

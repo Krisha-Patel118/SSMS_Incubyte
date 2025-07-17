@@ -21,4 +21,11 @@ describe('SweetShopManagementSystem Tests', () => {
         expect(updatedAvailableSweets).toHaveLength(1);
         expect(updatedAvailableSweets).toContainEqual(sweet);
     });
+
+    //Test to check if sweet name is empty
+    test('addSweetWithInvalidName', () => {
+        const sweet = new Sweet("", "Milk Sweet", 25, 100);
+        expect(() => shop.addSweet(sweet)).toThrow("Sweet name cannot be empty");
+    });
+
 });
