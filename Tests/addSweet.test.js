@@ -53,4 +53,10 @@ describe('SweetShopManagementSystem Tests', () => {
         shop.addSweet(sweet1);
         expect(() => shop.addSweet(sweet2)).toThrow("Sweet with ID 7 already exists!");
     });
+
+    //Test to check if ID is positive integer
+    test('addSweetWithNegativeIdTest', () => {
+        const sweet = new Sweet(-1, "Gulab Jamun", "Milk Sweet", 25, 100);
+        expect(() => shop.addSweet(sweet)).toThrow("Sweet ID must be a positive integer!");
+    });
 });
