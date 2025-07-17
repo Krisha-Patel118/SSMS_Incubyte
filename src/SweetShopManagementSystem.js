@@ -14,12 +14,19 @@ class SweetShopManagementSystem {
     }
       // Add a sweet to the shop
     addSweet(sweet) {
-        this.#checkSweetName(sweet.name);
-    this.#availableSweets.push(sweet);
-    console.log(`Sweet "${sweet.name}" added successfully!`);
-
+      if (this.#checkSweetName(sweet.name) && this.#checkSweetCategory(sweet.category)) {
+          this.#availableSweets.push(sweet);
+          console.log(`Sweet "${sweet.name}" added successfully!`);
+      }
     }
+    
 
+    #checkSweetCategory(sweetCategory) {
+        if (sweetCategory === null) throw new Error("Sweet category cannot be null!");
+        if (sweetCategory.trim() === "") throw new Error("Sweet category cannot be empty!");
+        return true;
+    }
+    // Check if the sweet name is empty or null
     #checkSweetName(name) {
     if (name === null) {
             throw new Error("Sweet name cannot be null!");
@@ -28,6 +35,7 @@ class SweetShopManagementSystem {
         }
         return true;
 }
+
 
 }
 
