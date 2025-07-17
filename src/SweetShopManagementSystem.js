@@ -63,6 +63,14 @@ class SweetShopManagementSystem {
         return true;
     }
 
+    viewSweetById(id) {
+        const sweet = this.#availableSweets.find(sweet => sweet.id === id);
+        if (!sweet) {
+            throw new Error(`Sweet with ID ${id} not found!`);
+        }
+        return { ...sweet };
+    }
+
 }
 
 module.exports = SweetShopManagementSystem;
