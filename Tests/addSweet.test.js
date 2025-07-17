@@ -48,15 +48,22 @@ describe('SweetShopManagementSystem Tests', () => {
 
     //Test to check for Duplicate ID
      test('addSweetWithDuplicateIdTest', () => {
-        const sweet1 = new Sweet(7, "Kaju Katli", "Milk Sweet", 20, 15);
-        const sweet2 = new Sweet(7, "Ladoo", "Dry Sweet", 20, 20); 
+        const sweet1 = new Sweet(6, "Kaju Katli", "Milk Sweet", 20, 15);
+        const sweet2 = new Sweet(6, "Ladoo", "Dry Sweet", 20, 20); 
         shop.addSweet(sweet1);
-        expect(() => shop.addSweet(sweet2)).toThrow("Sweet with ID 7 already exists!");
+        expect(() => shop.addSweet(sweet2)).toThrow("Sweet with ID 6 already exists!");
     });
 
     //Test to check if ID is positive integer
     test('addSweetWithNegativeIdTest', () => {
         const sweet = new Sweet(-1, "Gulab Jamun", "Milk Sweet", 25, 100);
         expect(() => shop.addSweet(sweet)).toThrow("Sweet ID must be a positive integer!");
+    });
+
+
+    //Test to check if Price is Invalid
+    test('addSweetWithInvalidPriceTest', () => {
+        const sweet = new Sweet(8, "Gulab Jamun", "Milk Sweet", -25, 100);
+        expect(() => shop.addSweet(sweet)).toThrow("Sweet price must be a positive number!");
     });
 });
