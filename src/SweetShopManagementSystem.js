@@ -142,5 +142,26 @@ class SweetShopManagementSystem {
 
     console.log(`${quantity} ${sweet.name}(s) purchased successfully!`);
   }
+
+    //Restock a sweet by ID and quantity
+  restockSweet(id, quantity) {
+    if (typeof id !== "number" || !Number.isInteger(id) || id <= 0) {
+      throw new Error("Invalid sweet ID.");
+    }
+
+    if (typeof quantity !== "number" || quantity <= 0 || !Number.isInteger(quantity)) {
+      throw new Error("Restock quantity must be a positive integer.");
+    }
+
+    const sweet = this.#availableSweets.find((s) => s.id === id);
+    if (!sweet) {
+      throw new Error(`Sweet with ID ${id} not found.`);
+    }
+
+    sweet.quantity += quantity;
+    console.log(`${quantity} ${sweet.name}(s) restocked successfully!`);
+  }
+
 }
+
 module.exports = SweetShopManagementSystem;
