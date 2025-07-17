@@ -83,6 +83,19 @@ class SweetShopManagementSystem {
         console.log(`Sweet "${deletedSweet.name}" with ID ${id} deleted successfully!`);
     }
 
-}
+    //Search sweets by name or category
+    searchSweets({ name, category }) {
+        return this.#availableSweets.filter(sweet => {
+            const matchesName = name
+                ? sweet.name.toLowerCase().includes(name.toLowerCase())
+                : true;
+            const matchesCategory = category
+                ? sweet.category.toLowerCase() === category.toLowerCase()
+                : true;
 
+            return matchesName && matchesCategory;
+        });
+
+}
+}
 module.exports = SweetShopManagementSystem;
