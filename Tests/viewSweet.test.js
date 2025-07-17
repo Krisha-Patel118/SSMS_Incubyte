@@ -16,8 +16,8 @@ describe('View Sweet Tests', () => {
             id: 10,
             name: "Rasgulla",
             category: "Milk Sweet",
-            price: 50,
-            quantity: 20
+            pricePerUnit: 50,
+            quantityInStock: 20
         });
     });
 
